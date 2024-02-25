@@ -6,7 +6,7 @@ pipeline {
 		stage('Git Checkout') {
 			steps {
 				gitCheckout(
-					branch: "Main"
+					branch: "Main",
 					url: "https://github.com/sumit-a1/java_app.git"	
 				)
 			}
