@@ -1,18 +1,18 @@
-pipeline{
+@Library('my-shared-lib') _
 
-	agnet any
-
-	stages{
-		stage('Git Checkout'){
-			script{
-				checkout scmGit(branches: [[name: '*/Main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-cred', url: 'https://github.com/sumit-a1/java_app.git']])
-
+pipeline {
+	agent any
+	stages {
+		stage('Git Checkout') {
+			steps {
+				script {
+					gitCheckout {
+						branch: "main"
+						url: "https://github.com/sumit-a1/java_app.git"
+						
+					}
+				}
 			}
-
-		} 
-
-
+		}
 	}
-
-
 }
