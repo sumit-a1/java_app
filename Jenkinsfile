@@ -5,12 +5,17 @@ pipeline {
 	stages {
 		stage('Git Checkout') {
 			steps {
-				script {
-					gitCheckout {
-						branch: "main"
-						url: "https://github.com/sumit-a1/java_app.git"	
-					}
+				gitCheckout {
+					branch: "main"
+					url: "https://github.com/sumit-a1/java_app.git"	
 				}
+			}
+		}
+		stage('Unit Test Maven') {
+			steps {
+				script {
+					mvnTest()
+				}	
 			}
 		}
 	}
